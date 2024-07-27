@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.ksp)
     alias(libs.plugins.hilt)
+    kotlin("plugin.serialization") version "2.0.0"
 }
 
 
@@ -101,6 +102,9 @@ dependencies {
     implementation(libs.library.base)
 
     implementation(libs.androidx.core.splashscreen)
+
+    //
+    implementation(libs.kotlinx.serialization.json)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
