@@ -5,6 +5,7 @@ plugins {
     alias(libs.plugins.hilt)
 }
 
+
 android {
     namespace = "com.krupal.finmanager"
     compileSdk = 34
@@ -96,6 +97,8 @@ dependencies {
     // Material Icon Extension
     implementation(libs.androidx.material.icons.extended)
 
+    //realm db
+    implementation(libs.library.base)
 
     implementation(libs.androidx.core.splashscreen)
 
