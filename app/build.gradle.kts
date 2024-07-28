@@ -101,10 +101,14 @@ dependencies {
     //realm db
     implementation(libs.library.base)
 
+    // splashScreen
     implementation(libs.androidx.core.splashscreen)
 
-    //
+    //serialization
     implementation(libs.kotlinx.serialization.json)
+
+    //datastore
+    implementation(libs.androidx.datastore.preferences)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

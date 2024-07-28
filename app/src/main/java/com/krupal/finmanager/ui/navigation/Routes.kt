@@ -6,7 +6,16 @@ import kotlinx.serialization.Serializable
 object Home
 
 @Serializable
+object OnBoard
+
+@Serializable
+object Main
+
+@Serializable
 object Detail
 
 @Serializable
-object Analaysis
+object Analysis
+
+@Serializable
+object DetailScreen
