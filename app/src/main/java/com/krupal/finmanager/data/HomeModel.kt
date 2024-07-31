@@ -5,41 +5,33 @@ import io.realm.kotlin.types.annotations.PrimaryKey
 import org.mongodb.kbson.ObjectId
 
 
-class HomeModel: RealmObject{
-    @PrimaryKey var Id : ObjectId = ObjectId()
-    var TotalBalance:Int = 0
-    var Cash: Cash? = null
-    var Card: Card? = null
-    var Savings:Savings? = null
+class HomeModel : RealmObject {
+    @PrimaryKey
+    var id: ObjectId = ObjectId()
+    var totalBalance: Int = 0
+    var account: Account? = null
 }
 
-class Card: RealmObject{
-    @PrimaryKey var Id : ObjectId = ObjectId()
-    var TotalAmount:Int = 0
-    var CardData: CardData? = null
-}
-class Cash: RealmObject{
-    @PrimaryKey var Id : ObjectId = ObjectId()
-    var TotalAmount:Int = 0
-    var CashData: CashData? = null
+class Account : RealmObject {
+    @PrimaryKey
+    var id: ObjectId = ObjectId()
+    var accountName: String = ""
+    var accountType: String = ""
+    var totalAmount: Int = 0
+    var accountData: AccountData? = null
 }
 
-class Savings: RealmObject{
-    @PrimaryKey var Id : ObjectId = ObjectId()
-    var TotalAmount:Int = 0
-    var CardData: SavingsData? = null
+class AccountData : RealmObject {
+    @PrimaryKey
+    var id: ObjectId = ObjectId()
+    var amount: Int = 0
+    var comment: String = ""
+    var category: Category? = null
 }
 
-class CardData: RealmObject{
-    @PrimaryKey var Id : ObjectId = ObjectId()
-    var Amount:Int = 0
+class Category : RealmObject {
+    @PrimaryKey
+    var id: ObjectId = ObjectId()
+    var type: String = ""
 }
 
-class CashData: RealmObject{
-    @PrimaryKey var Id : ObjectId = ObjectId()
-    var Amount:Int = 0
-}
-class SavingsData: RealmObject{
-    @PrimaryKey var Id : ObjectId = ObjectId()
-    var Amount:Int = 0
-}

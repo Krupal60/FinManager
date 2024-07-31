@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.ksp)
     alias(libs.plugins.hilt)
     kotlin("plugin.serialization") version "2.0.0"
+    alias(libs.plugins.compose.compiler)
 }
 
 
@@ -55,14 +56,20 @@ android {
     buildFeatures {
         compose = true
     }
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.11"
-    }
+
+
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+    buildToolsVersion = "35.0.0"
+    ndkVersion = "25.2.9519653"
+}
+composeCompiler {
+    enableStrongSkippingMode = true
+
+    reportsDestination = layout.buildDirectory.dir("compose_compiler")
 }
 
 dependencies {
@@ -85,7 +92,10 @@ dependencies {
 
     // navigation suite alpha
 
-    implementation(libs.androidx.material3.adaptive.navigation.suite.android)
+  //  implementation(libs.androidx.material3.adaptive.navigation.suite.android)
+
+    implementation(libs.androidx.material3.adaptive.navigation.suite)
+
     implementation(libs.androidx.adaptive.android)
 
 
@@ -109,6 +119,9 @@ dependencies {
 
     //datastore
     implementation(libs.androidx.datastore.preferences)
+
+    //sdp ssp
+    implementation(libs.jetpack.sdp.ssp)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
